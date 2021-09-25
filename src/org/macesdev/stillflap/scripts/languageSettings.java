@@ -1,13 +1,6 @@
 package org.macesdev.stillflap.scripts;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Locale;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.macesdev.stillflap.run;
 
 public class languageSettings {
 	public static String language = "";
