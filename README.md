@@ -1,7 +1,9 @@
-<h2 align="center"><b>StillFlap Game (Java Based)</b></h2>
+<h2 align="center"><b>StillFlap Game (2DGraphics Based)</b></h2>
 <p align="center">
   <a href="https://github.com/macesdev/stillflap/">REPO OSS </a> -
-  <a href="https://macesdev.github.io/macesdev/projects/stillflap/license">LICENSE</a>
+  <a href="https://macesdev.github.io/macesdev/projects/stillflap/license">LICENSE</a> </br> </br>
+  <b> Created by MacesDEV Foundation </b> </br>
+  <b> All Rights Resevred </b>
 <h4 align="center"></h4>
 
 <h2> Project Details </h2>
@@ -21,13 +23,13 @@
 <h2> Supported Languages & Lang Fİle</h2>
 
 Supported Languages : 
-> Türkçe (Türkiye TÜrkçesi)
+> Türkçe (Türkiye TÜrkçesi) (tr_TR)
 > 
-> English (United States)
+> English (United States) (en_US)
 
-<h4> Language Sources (java_class) : </h4>
-tr_TR (returned String veriable), 
+<h2> Language Sources (java_class)</h2>
 
+tr_TR (only_class_veriables), 
 
 ```java
 package org.macesdev.stillflap.assets.lang;
@@ -40,5 +42,26 @@ public class en_US {
 }
 ```
 
+en_US (only_class_veriables), 
 
+```java
+package org.macesdev.stillflap.assets.lang;
 
+public class tr_TR {
+	public static String checkForUpdates_level1 = "Yeni güncellemeler kontrol ediliyor.";
+	public static String checkForUpdates_level2 = "Yeni güncellemeler kontrol ediliyor..";
+	public static String checkForUpdates_level3 = "Yeni güncellemeler kontrol ediliyor...";
+	public static String version = "v1.0-dev";
+
+}
+```
+
+<h2> In Game Screenshots </h2>
+
+> loading_assets
+
+![image](https://user-images.githubusercontent.com/70213359/134778470-9eaaa32a-b827-4a14-927b-f566acae2f76.png)
+
+> setttings_menu
+
+null
