@@ -79,13 +79,3 @@ public class tr_TR {
 
 }
 ```
-
-<h2> In Game Screenshots </h2>
-
-> loading_assets
-
-![image](https://user-images.githubusercontent.com/70213359/134778470-9eaaa32a-b827-4a14-927b-f566acae2f76.png)
-
-> setttings_menu
-
-null
