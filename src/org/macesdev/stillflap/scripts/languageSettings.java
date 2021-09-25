@@ -52,18 +52,7 @@ class readSaveFile {
         return version;
 	}
 	public static String lang() throws IOException, JSONException {
-		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-
-        BufferedReader br = new BufferedReader(new FileReader(path + "/gameConfig.json"));            
-        String line;  
-        StringBuilder sbuilderObj = new StringBuilder();
-        while((line=br.readLine()) !=null){
-            sbuilderObj.append(line);
-        }
-        JSONObject jsonObj = new JSONObject(sbuilderObj.toString());
-          
-        String language = jsonObj.getString("language");
-        
-        return language;
+		String a = "tr_TR";
+		return a;
 	}
 }

@@ -1,19 +1,8 @@
 package org.macesdev.stillflap.scenes.main;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.macesdev.stillflap.run;
-import org.macesdev.stillflap.scripts.languageSettings;
-
 import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,7 +10,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-@SuppressWarnings("serial")
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.macesdev.stillflap.run;
+
 public class wBoot extends JFrame {
 
 	private JPanel contentPane;
