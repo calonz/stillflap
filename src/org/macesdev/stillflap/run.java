@@ -1,3 +1,4 @@
+
 package org.macesdev.stillflap;
 
 import java.io.BufferedWriter;
@@ -33,6 +34,8 @@ public class run {
 		    writer.close();
 		    
 		    org.macesdev.stillflap.scenes.main.wDialog.run();
+		    
+		    // sa
 		}		
 	}
 }
