@@ -1,25 +1,13 @@
 package org.macesdev.stillflap.scripts;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import org.json.*;
 import org.macesdev.stillflap.run;
-
-import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.JsonPath;
 
 public class setLanguageVeriable {
 	public static String lang;
@@ -33,7 +21,6 @@ public class setLanguageVeriable {
 	    while (myReader.hasNextLine()) {
 	        String data = myReader.nextLine();
 	        jsonData = data;
-	        System.out.println(data);
 	    }
 	    myReader.close();
 	    
@@ -46,7 +33,6 @@ public class setLanguageVeriable {
         JSONObject jo = new JSONObject();
           
         try {
-			jo.put("version", org.macesdev.stillflap.assets.lang.en_US.version);
 	        jo.put("language", org.macesdev.stillflap.scripts.languageSettings.script(false, null));
 		} catch (JSONException e) {
 			e.printStackTrace();

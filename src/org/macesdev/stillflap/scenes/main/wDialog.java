@@ -56,7 +56,7 @@ public class wDialog extends JDialog {
 		
 		JLabel lblNewLabel = new JLabel("The config file could not be found. The game must be");
 		
-		if (languageSettings.script(false, null) == "TR") {
+		if (languageSettings.script(false, null) == "tr_TR") {
 			lblNewLabel.setText("Yapılandırma dosyası bulunamadı. Oluşturulması");	
 			setTitle("Uyarı!");
 		} else {
@@ -70,7 +70,7 @@ public class wDialog extends JDialog {
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblRestartedForIt = new JLabel("restarted for it to be created.");
-		if (languageSettings.script(false, null) == "TR") {
+		if (languageSettings.script(false, null) == "tr_TR") {
 			lblRestartedForIt.setText("için oyunu yeniden başlatın");	
 		} else {
 			// 

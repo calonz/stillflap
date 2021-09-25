@@ -15,9 +15,9 @@ public class languageSettings {
 	public static String script(boolean setValue, String newLangValue) {
 		if (setValue == false) {
 			if (Locale.getDefault().getLanguage().toString() == "tr") {
-				language = "TR";
+				language = "tr_TR";
 			} else if (Locale.getDefault().getLanguage().toString() != "tr"){
-				language = "ENUS";
+				language = "en_US";
 			}
 			
 			return language;
