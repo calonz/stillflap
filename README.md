@@ -22,9 +22,26 @@
 
 <h2> Supported Languages & Lang Fİle</h2>
 
-<h2> Project Files </h2>
+<h2> Project Fİles & File Details </h2>
+
 ```
-- org.macesdev.stillflap
+|-- org (package)
+|   |-- macesdev (package)
+|   |   |-- stillflap (package)
+|   |   |   |-- assets (resource_folder)
+|   |   |   |   |-- lang (lang_classes)
+|   |   |   |   |   |-- en_US.java (English (United States) lang class)
+|   |   |   |   |   |-- tr_TR.java (Türkçe (Türkiye TÜrkçesi) lang class)
+|   |   |   |-- run.java (project_main_class)
+|   |   |   |-- scenes (resource_folder)
+|   |   |   |   |-- main (resource_folder)
+|   |   |   |   |   |-- wBoot.java (startup_form)
+|   |   |   |   |   |-- wDialog.java (configFile_notFound_errorDialouge)
+|   |   |   |   |   |-- wSettings.java (settings_form)
+|   |   |   |-- scripts (resource_folder)
+|   |   |   |   |-- checkNewUpdates.java (check_new_updateS)
+|   |   |   |   |-- languageSettings.java (generate_system_language_settings)
+|   |   |   |   |-- setLanguageVeriable.java (create_config_file)
 
 ```
 
