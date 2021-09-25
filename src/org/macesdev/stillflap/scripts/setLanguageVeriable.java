@@ -1,5 +1,6 @@
 package org.macesdev.stillflap.scripts;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,13 +18,16 @@ import java.util.Scanner;
 import org.json.*;
 import org.macesdev.stillflap.run;
 
+import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.JsonPath;
+
 public class setLanguageVeriable {
-	static String lang;
+	public static String lang;
 	static String jsonData;
 	static String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/gameConfig.json";
 
 	
-	public static String parseJSON() throws JSONException, FileNotFoundException {
+	public static String parseJSON() throws JSONException, IOException {
 		File myObj = new File(path);
 	    Scanner myReader = new Scanner(myObj);
 	    while (myReader.hasNextLine()) {
@@ -33,17 +37,9 @@ public class setLanguageVeriable {
 	    }
 	    myReader.close();
 	    
-	    JSONParser parser = new JSONParser();
+	    JSONObject obj = new JSONObject(jsonData);  
 
-	    Object obj = parser.parse(new FileReader("simple.json"));
-
-	    JSONObject jsonObject = (JSONObject) obj;
-
-	    for(Iterator iterator = jsonObject.keySet().iterator(); iterator.hasNext();) {
-	      String key = (String) iterator.next();
-	      System.out.println(jsonObject.get(key));
-	    }
-		return null;
+		return obj.getString("language");
 	}
 	
 	public static void createJSON() throws IOException {

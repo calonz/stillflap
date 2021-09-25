@@ -20,6 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.macesdev.stillflap.run;
+import org.macesdev.stillflap.scripts.setLanguageVeriable;
 
 public class wBoot extends JFrame {
 
@@ -66,7 +67,13 @@ public class wBoot extends JFrame {
 		contentPane.add(build_number);
 		
 		JLabel subtext = new JLabel("$checkForUpdates_level1");
-				
+		
+		if (setLanguageVeriable.lang == "tr_TR") {
+			subtext.setText("sa");
+		} else {
+			subtext.setText("as");
+		}
+		
 		subtext.setHorizontalAlignment(SwingConstants.LEFT);
 		subtext.setForeground(Color.WHITE);
 		subtext.setFont(new Font("Ubuntu", Font.PLAIN, 18));
