@@ -18,24 +18,18 @@ public class run {
 				
 		File file = new File(path + "/gameConfig.json");
 		if (file.exists()) {
-			System.out.println(str.language());
-			
-			languageSettings.language = languageSettings.LLang();
-			languageSettings.script(true, languageSettings.LLang());
-			org.macesdev.stillflap.assets.values.str.lang = languageSettings.LLang();
-			
 			org.macesdev.stillflap.scenes.main.wBoot.runScene();
 		} else {
 			System.out.println("dosyayok");
 			file.createNewFile();
-		    String jsonContent = org.macesdev.stillflap.scripts.createSaveFile.function(path + "/gameConfig.json");
+		    String jsonContent = org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON();
 		    BufferedWriter writer = new BufferedWriter(new FileWriter(path + "/gameConfig.json"));
 		    writer.write(jsonContent);
 		    writer.close();
 		    
-		    org.macesdev.stillflap.scenes.main.wDialog.run();
+		    System.out.println(jsonContent);
 		    
-		    // sa
+		    org.macesdev.stillflap.scenes.main.wDialog.run();
 		}		
 	}
 }

@@ -73,12 +73,6 @@ public class wBoot extends JFrame {
 		subtext.setBounds(12, 327, 324, 24);
 		contentPane.add(subtext);
 		
-		if (checkLang.lang() == "tr_TR") {
-			subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdates_level1);
-		} else {
-			subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdates_level1);
-		}
-		
 		JLabel logo1 = new JLabel("macesdev");
 		logo1.setHorizontalAlignment(SwingConstants.CENTER);
 		logo1.setForeground(Color.WHITE);
@@ -92,45 +86,5 @@ public class wBoot extends JFrame {
 		logo2.setFont(new Font("Ubuntu", Font.BOLD, 20));
 		logo2.setBounds(136, 164, 324, 42);
 		contentPane.add(logo2);
-	}
-}
-
-class checkLang {
-	public static String ver() throws IOException, JSONException {
-		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-
-        BufferedReader br = new BufferedReader(new FileReader(path + "/gameConfig.json"));            
-        String line;  
-        StringBuilder sbuilderObj = new StringBuilder();
-        while((line=br.readLine()) !=null){
-            sbuilderObj.append(line);
-        }
-        JSONObject jsonObj = new JSONObject(sbuilderObj.toString());
-          
-        String version = jsonObj.getString("version");
-                
-        return version;
-	}
-	public static String lang() {
-		String first = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		String lang = "";
-		
-        try {
-            String contents = new String((Files.readAllBytes(Paths.get(first))));
-            JSONObject o = new JSONObject(contents);
-            JSONArray emails = o.getJSONArray("emails");
-            for (int i = 0; i < emails.length(); i++) {
-                System.out.println(emails.getString(i));
-            }
-            JSONObject language = new JSONObject("family");
-            lang = language.getString("language");
-        } catch(IOException e){
-            e.printStackTrace();
-        } catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-        return lang;
 	}
 }
