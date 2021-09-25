@@ -1,7 +1,7 @@
 <h2 align="center"><b>StillFlap Game (Java Based)</b></h2>
 <p align="center">
-  <a href="https://github.com/macesdev/gravflop/">REPO OSS </a> -
-  <a href="https://macesdev.github.io/macesdev/projects/gravflop/license">LICENSE</a>
+  <a href="https://github.com/macesdev/stillflap/">REPO OSS </a> -
+  <a href="https://macesdev.github.io/macesdev/projects/stillflap/license">LICENSE</a>
 <h4 align="center"></h4>
 
 <h2> Project Details </h2>
@@ -18,19 +18,6 @@
 > 
 > **Project Author** : Maces Games STUDIOS (behalf on macesdev), Muhammed Ali BULUT
 
-<h2> Configuration File </h2>
-
-Config File created with org.json (<a href="https://search.maven.org/artifact/org.json/json/20210307/bundle">see oss</a>)
-
-ALl Veriables : 
-
-```json
-{
-    "language": "tr_TR", 
-    "version": "v1.0-dev" 
-}
-```
-
 <h2> Supported Languages & Lang Fİle</h2>
 
 Supported Languages : 
@@ -38,8 +25,9 @@ Supported Languages :
 > 
 > English (United States)
 
-Language Sources (java_class) :
+<h4> Language Sources (java_class) : </h4>
 tr_TR (returned String veriable), 
+
 
 ```java
 package org.macesdev.stillflap.assets.lang;
