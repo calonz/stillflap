@@ -20,8 +20,6 @@
 > 
 > **Project Author** : Maces Games STUDIOS (behalf on macesdev), Muhammed Ali BULUT
 
-<h2> Supported Languages & Lang Fİle</h2>
-
 <h2> Project Fİles & File Details </h2>
 
 ```
@@ -44,6 +42,7 @@
 |   |   |   |   |-- setLanguageVeriable.java (create_config_file)
 
 ```
+<h2> Supported Languages & Lang Fİle</h2>
 
 Supported Languages : 
 > Türkçe (Türkiye TÜrkçesi) (tr_TR)
@@ -61,7 +60,8 @@ public class en_US {
 	public static String checkForUpdates_level1 = "Checking for new updates.";
 	public static String checkForUpdates_level2 = "Checking for new updates..";
 	public static String checkForUpdates_level3 = "Checking for new updates...";
-	public static String version = "v1.0-dev";
+	public static String pressenter = "Press ENTER to Start Game";
+	public static String version = "v1.0.1-dev";
 }
 ```
 
@@ -74,7 +74,8 @@ public class tr_TR {
 	public static String checkForUpdates_level1 = "Yeni güncellemeler kontrol ediliyor.";
 	public static String checkForUpdates_level2 = "Yeni güncellemeler kontrol ediliyor..";
 	public static String checkForUpdates_level3 = "Yeni güncellemeler kontrol ediliyor...";
-	public static String version = "v1.0-dev";
+	public static String pressenter = "ENTER Tuşuna Basarak Oyunu Başlat";
+	public static String version = "v1.0.1-dev";
 
 }
 ```
