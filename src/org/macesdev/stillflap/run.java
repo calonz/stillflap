@@ -9,6 +9,7 @@ import java.io.IOException;
 import org.json.*;
 import org.macesdev.stillflap.assets.values.str;
 import org.macesdev.stillflap.scripts.languageSettings;
+import org.macesdev.stillflap.scripts.setLanguageVeriable;
 
 public class run {	
 	public static void main(String[] args) throws JSONException, IOException {
@@ -18,16 +19,13 @@ public class run {
 				
 		File file = new File(path + "/gameConfig.json");
 		if (file.exists()) {
+			System.out.println(org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON());
+			
 			org.macesdev.stillflap.scenes.main.wBoot.runScene();
 		} else {
 			System.out.println("dosyayok");
 			file.createNewFile();
-		    String jsonContent = org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON();
-		    BufferedWriter writer = new BufferedWriter(new FileWriter(path + "/gameConfig.json"));
-		    writer.write(jsonContent);
-		    writer.close();
-		    
-		    System.out.println(jsonContent);
+			setLanguageVeriable.createJSON();
 		    
 		    org.macesdev.stillflap.scenes.main.wDialog.run();
 		}		
