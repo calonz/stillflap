@@ -1,26 +1,17 @@
 package org.macesdev.stillflap.scenes.main;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-import org.macesdev.stillflap.run;
 import org.macesdev.stillflap.scripts.setLanguageVeriable;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
@@ -28,6 +19,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class wBoot extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static JLabel logo2 = new JLabel("foundation");
 	static JLabel logo1 = new JLabel("macesdev");
@@ -72,6 +67,21 @@ public class wBoot extends JFrame {
 					
 					subtext.setVisible(true);
 					build_number.setVisible(true);
+
+					String lang;
+					try {
+						lang = setLanguageVeriable.parseJSON();
+						
+						if (lang.equals("tr_TR")) {
+							subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdates_level1);
+							build_number.setText(org.macesdev.stillflap.assets.lang.tr_TR.version);
+						} else {
+							subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdates_level1);
+							build_number.setText(org.macesdev.stillflap.assets.lang.en_US.version);
+						}
+					} catch (JSONException | IOException e1) {
+						e1.printStackTrace();
+					}
 			    }
 			}
 		});
@@ -98,7 +108,7 @@ public class wBoot extends JFrame {
 		build_number.setBounds(446, 327, 134, 24);
 		build_number.setVisible(false);
 		contentPane.add(build_number);
-		
+			
 		subtext.setHorizontalAlignment(SwingConstants.LEFT);
 		subtext.setForeground(Color.WHITE);
 		subtext.setFont(new Font("Ubuntu", Font.PLAIN, 18));
@@ -123,5 +133,18 @@ public class wBoot extends JFrame {
 		pressenter.setFont(new Font("Ubuntu", Font.PLAIN, 18));
 		pressenter.setBounds(12, 308, 568, 30);
 		contentPane.add(pressenter);
+		
+		String lang;
+		try {
+			lang = setLanguageVeriable.parseJSON();
+			
+			if (lang.equals("tr_TR")) {
+				pressenter.setText(org.macesdev.stillflap.assets.lang.tr_TR.pressenter);
+			} else {
+				pressenter.setText(org.macesdev.stillflap.assets.lang.en_US.pressenter);
+			}
+		} catch (JSONException | IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 }
