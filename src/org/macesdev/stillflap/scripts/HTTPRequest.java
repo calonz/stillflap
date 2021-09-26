@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class HTTPRequest {
 	private static HttpURLConnection connection;
 	
-	String req() throws IOException {
+	static String req() throws IOException {
 		BufferedReader reader;
 		String line;
 		StringBuffer responseContent = new StringBuffer();
@@ -51,16 +51,18 @@ public class HTTPRequest {
 		return responseContent.toString();
 	}
 		
-	float parsed() throws JSONException, IOException {
+	public static double parsed() throws JSONException, IOException {
 		String jsonContent = req();
-		float sa = 1.0f;
 	    
 	    JSONObject obj = new JSONObject(jsonContent);  
 	    
-	    if (obj.getDouble("latest") == 1.0) {
-	    	
+	    if (obj.getDouble("latest") > org.macesdev.stillflap.assets.lang.en_US.version) {
+	    	System.out.println("eski sürüm");
+	    }
+	    if (obj.getDouble("latest") == org.macesdev.stillflap.assets.lang.en_US.version) {
+	    	System.out.println("sürüm güncel");
 	    }
 	    
-	    return sa;
+	    return obj.getDouble("latest");
 	}
 }
