@@ -119,7 +119,7 @@ public class wDownloadUpdate extends JDialog {
 				System.out.println("file finded!");
 			}
 			
-			System.exit(val);
+			org.macesdev.stillflap.scripts.downloadUpdate.runNewUpdate();
 			break;
 		} 
 

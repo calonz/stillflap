@@ -1,8 +1,11 @@
 package org.macesdev.stillflap.scripts;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.nio.file.Files;
@@ -38,4 +41,14 @@ public class downloadUpdate {
             return Files.copy(in, Paths.get(targetFileName));
         }
     }  
+    
+    public static void runNewUpdate() throws IOException {
+		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		
+    	OutputStream out = null;
+    	Process proc = new ProcessBuilder("cd ~" + path + "/game-1.1.jar").start();
+    	out = proc.getOutputStream();  
+    	out.write("any command".getBytes());  
+    	out.flush(); 
+    }
 }
