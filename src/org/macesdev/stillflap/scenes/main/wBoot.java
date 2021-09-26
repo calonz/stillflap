@@ -36,13 +36,23 @@ public class wBoot extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	public static void enableCompoments(Boolean enbc) {
+		if (enbc == false) {
+			logo2.setEnabled(false);
+			logo1.setEnabled(false);
+			subtext.setEnabled(false);
+			build_number.setEnabled(false);
+			pressenter.setEnabled(false);
+		}
+	}
+	
 	public static void runScene() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					wBoot frame = new wBoot();
 					frame.setVisible(true);
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -104,6 +114,7 @@ public class wBoot extends JFrame {
 		setBounds(100, 65, 600, 400);
 		setBackground(Color.BLACK);
 		setLocationRelativeTo(null);
+		setVisible(false);
 		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
@@ -148,6 +159,7 @@ public class wBoot extends JFrame {
 			
 			if (lang.equals("tr_TR")) {
 				pressenter.setText(org.macesdev.stillflap.assets.lang.tr_TR.pressenter);
+				setTitle(org.macesdev.stillflap.assets.lang.tr_TR.wBoot_Title);
 			} else {
 				pressenter.setText(org.macesdev.stillflap.assets.lang.en_US.pressenter);
 			}
