@@ -1,16 +1,23 @@
 package org.macesdev.stillflap.scripts;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class HTTPRequest {
 	private static HttpURLConnection connection;
 	
-	public static void req() throws IOException {
+	String req() throws IOException {
 		BufferedReader reader;
 		String line;
 		StringBuffer responseContent = new StringBuffer();
@@ -41,6 +48,19 @@ public class HTTPRequest {
 			reader.close();
 		}
 		
-		System.out.println(responseContent.toString());
+		return responseContent.toString();
+	}
+		
+	float parsed() throws JSONException, IOException {
+		String jsonContent = req();
+		float sa = 1.0f;
+	    
+	    JSONObject obj = new JSONObject(jsonContent);  
+	    
+	    if (obj.getDouble("latest") == 1.0) {
+	    	
+	    }
+	    
+	    return sa;
 	}
 }

@@ -84,14 +84,6 @@ public class wBoot extends JFrame {
 					} catch (JSONException | IOException e1) {
 						e1.printStackTrace();
 					}
-					
-					try {
-						HTTPRequest.req();
-					} catch (MalformedURLException e1) {
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
 			    }
 			}
 		});
