@@ -4,7 +4,6 @@ import javax.swing.JDialog;
 
 import org.json.JSONException;
 import org.macesdev.stillflap.run;
-import org.macesdev.stillflap.scripts.languageSettings;
 import org.macesdev.stillflap.scripts.setLanguageVeriable;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
@@ -23,8 +22,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 import javax.swing.JProgressBar;
-import java.awt.Window.Type;
-
 public class wDownloadUpdate extends JDialog {
 
 	/**

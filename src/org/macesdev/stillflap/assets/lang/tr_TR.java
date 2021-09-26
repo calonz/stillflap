@@ -1,7 +1,5 @@
 package org.macesdev.stillflap.assets.lang;
 
-import org.macesdev.stillflap.scripts.HTTPRequest;
-
 public class tr_TR {
 	public static String wBoot_Title = "StillFlap - Kaynaklar Yükleniyor";
 	public static String wDownloadUpdate_Title = "StillFLap - Güncelleme Bulundu ";

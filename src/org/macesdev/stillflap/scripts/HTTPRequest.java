@@ -1,15 +1,10 @@
 package org.macesdev.stillflap.scripts;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Scanner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
