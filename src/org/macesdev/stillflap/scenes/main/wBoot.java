@@ -44,6 +44,12 @@ public class wBoot extends JFrame {
 			subtext.setEnabled(false);
 			build_number.setEnabled(false);
 			pressenter.setEnabled(false);
+		} else {
+			logo2.setEnabled(true);
+			logo1.setEnabled(true);
+			subtext.setEnabled(true);
+			build_number.setEnabled(true);
+			pressenter.setEnabled(true);
 		}
 	}
 	

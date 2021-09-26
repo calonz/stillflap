@@ -18,7 +18,7 @@ public class downloadUpdate {
 		File file = new File(path + "/game-1.1.jar");
 		
 		if (file.exists()) {
-			// 
+			returnedBytesDownload = 207058;
 		} else {
 			String sourceUrl = "https://macesdev.github.io/stillflap/latest/game-1.1.jar";
 	        String targetFilename = path + "/game-1.1.jar";

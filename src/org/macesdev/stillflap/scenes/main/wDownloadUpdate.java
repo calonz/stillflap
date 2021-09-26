@@ -3,6 +3,7 @@ package org.macesdev.stillflap.scenes.main;
 import javax.swing.JDialog;
 
 import org.json.JSONException;
+import org.macesdev.stillflap.run;
 import org.macesdev.stillflap.scripts.languageSettings;
 import org.macesdev.stillflap.scripts.setLanguageVeriable;
 
@@ -17,6 +18,7 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -104,9 +106,23 @@ public class wDownloadUpdate extends JDialog {
 		
 		progressBar.setValue(val);
 		
-		if (progressBar.getValue() == 100) {
-			System.out.println("Download Succesful!!");
-		}
+		System.out.println("Download Succesful!!");
+		setVisible(false);
+		org.macesdev.stillflap.scenes.main.wBoot.enableCompoments(true);
+		
+		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		
+		while (org.macesdev.stillflap.scripts.downloadUpdate.run("aaa") == 207058) {
+			File file = new File(path + "/game-1.1.jar");
+			if(file.exists()) {
+				setVisible(false);
+				System.out.println("file finded!");
+			}
+			
+			System.exit(val);
+			break;
+		} 
+
 		
 		progressBar.setBounds(10, 67, 382, 52);
 		getContentPane().add(progressBar);
