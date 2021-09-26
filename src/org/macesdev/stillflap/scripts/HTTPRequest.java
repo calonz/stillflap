@@ -57,10 +57,8 @@ public class HTTPRequest {
 	    JSONObject obj = new JSONObject(jsonContent);  
 	    
 	    if (obj.getDouble("latest") > org.macesdev.stillflap.assets.lang.en_US.version) {
-	    	System.out.println("eski sürüm");
 	    }
 	    if (obj.getDouble("latest") == org.macesdev.stillflap.assets.lang.en_US.version) {
-	    	System.out.println("sürüm güncel");
 	    }
 	    
 	    return obj.getDouble("latest");
