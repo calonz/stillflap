@@ -6,6 +6,8 @@ import org.json.JSONException;
 import org.macesdev.stillflap.scripts.languageSettings;
 import org.macesdev.stillflap.scripts.setLanguageVeriable;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -16,6 +18,7 @@ import javax.swing.WindowConstants;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import javax.swing.JProgressBar;
 import java.awt.Window.Type;
@@ -35,6 +38,8 @@ public class wDownloadUpdate extends JDialog {
 			wDownloadUpdate dialog = new wDownloadUpdate();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -42,8 +47,20 @@ public class wDownloadUpdate extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * @throws IOException 
+	 * @throws MalformedURLException 
 	 */
-	public wDownloadUpdate() {
+	public wDownloadUpdate() throws MalformedURLException, IOException {
+        String name = "os.name";
+        
+        if (System.getProperty(name).equals("Linux")) {
+        	try {
+        	      UIManager.setLookAndFeel(new FlatIntelliJLaf());
+        	    } catch (Exception e1) {
+        	      e1.printStackTrace();
+        	    }
+        }
+		
 		setResizable(false);
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -52,17 +69,7 @@ public class wDownloadUpdate extends JDialog {
 			}
 			@Override
 			public void windowOpened(WindowEvent e) {
-		        String name = "os.name";
 
-		        System.out.println("Name   : " + System.getProperty(name));
-		        
-		        if (System.getProperty(name).equals("Linux")) {
-		        	try {
-		        	      UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-		        	    } catch (Exception e1) {
-		        	      e1.printStackTrace();
-		        	    }
-		        }
 			}
 		});
 		getContentPane().setBackground(Color.BLACK);
@@ -91,7 +98,16 @@ public class wDownloadUpdate extends JDialog {
 		getContentPane().add(lblRestartedForIt);
 		
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setValue(15);
+		progressBar.setStringPainted(true);
+		
+		int val = org.macesdev.stillflap.scripts.downloadUpdate.run("aaa");
+		
+		progressBar.setValue(val);
+		
+		if (progressBar.getValue() == 100) {
+			System.out.println("Download Succesful!!");
+		}
+		
 		progressBar.setBounds(10, 67, 382, 52);
 		getContentPane().add(progressBar);
 		setBackground(Color.BLACK);
