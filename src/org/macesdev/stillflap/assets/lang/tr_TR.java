@@ -5,6 +5,6 @@ public class tr_TR {
 	public static String checkForUpdates_level2 = "Yeni güncellemeler kontrol ediliyor..";
 	public static String checkForUpdates_level3 = "Yeni güncellemeler kontrol ediliyor...";
 	public static String pressenter = "ENTER Tuşuna Basarak Oyunu Başlat";
-	public static String version = "v1.0.1-dev";
+	public static float version = 1.0f;
 
 }

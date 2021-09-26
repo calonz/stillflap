@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -12,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import org.json.JSONException;
+import org.macesdev.stillflap.scripts.HTTPRequest;
 import org.macesdev.stillflap.scripts.setLanguageVeriable;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
@@ -74,12 +76,20 @@ public class wBoot extends JFrame {
 						
 						if (lang.equals("tr_TR")) {
 							subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdates_level1);
-							build_number.setText(org.macesdev.stillflap.assets.lang.tr_TR.version);
+							build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
 						} else {
 							subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdates_level1);
-							build_number.setText(org.macesdev.stillflap.assets.lang.en_US.version);
+							build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
 						}
 					} catch (JSONException | IOException e1) {
+						e1.printStackTrace();
+					}
+					
+					try {
+						HTTPRequest.req();
+					} catch (MalformedURLException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
 			    }

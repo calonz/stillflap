@@ -5,5 +5,5 @@ public class en_US {
 	public static String checkForUpdates_level2 = "Checking for new updates..";
 	public static String checkForUpdates_level3 = "Checking for new updates...";
 	public static String pressenter = "Press ENTER to Start Game";
-	public static String version = "v1.0.1-dev";
+	public static float version = 1.0f;
 }
