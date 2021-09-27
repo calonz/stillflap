@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 
 import org.json.JSONException;
 import org.macesdev.stillflap.scripts.HTTPRequest;
+import org.macesdev.stillflap.scripts.downloadUpdate;
 import org.macesdev.stillflap.scripts.setLanguageVeriable;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
@@ -82,31 +83,76 @@ public class wBoot extends JFrame {
 			    int key = e.getKeyCode();
 
 			    if(key == KeyEvent.VK_ENTER){
-					pressenter.setVisible(false);
-					pressenter.setEnabled(false);
-					
-					subtext.setVisible(true);
-					build_number.setVisible(true);
+			    	try {
+						if (downloadUpdate.checkVersion() == org.macesdev.stillflap.assets.lang.en_US.nextVersion) {
+							pressenter.setVisible(false);
+							pressenter.setEnabled(false);
+							
+							subtext.setVisible(true);
+							build_number.setVisible(true);
 
-					String lang;
-					try {
-						lang = setLanguageVeriable.parseJSON("language");
-						
-						if (lang.equals("tr_TR")) {
-							subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdatest_found);
-							build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
+							String lang;
+							try {
+								lang = setLanguageVeriable.parseJSON("language");
+								
+								if (lang.equals("tr_TR")) {
+									subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdatest_found);
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
+								} else {
+									subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdatest_found);
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
+								}
+							} catch (JSONException | IOException e1) {
+								e1.printStackTrace();
+							}
+							
+							try {
+								System.out.println(HTTPRequest.parsed());
+							} catch (JSONException | IOException e1) {
+								e1.printStackTrace();
+							}
 						} else {
-							subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdatest_found);
-							build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
+							pressenter.setVisible(false);
+							pressenter.setEnabled(false);
+							
+							subtext.setVisible(true);
+							build_number.setVisible(true);
+
+							String lang;
+							try {
+								lang = setLanguageVeriable.parseJSON("language");
+								
+								if (lang.equals("tr_TR")) {
+									subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdates_notFound);
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
+								
+									TimeUnit.SECONDS.sleep(1);
+									setVisible(false);
+									org.macesdev.stillflap.scenes.main.wMainMenu.runScene();
+								} else {
+									subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkFOrUpdates_notFound);
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
+									
+									TimeUnit.SECONDS.sleep(1);
+									setVisible(false);
+									org.macesdev.stillflap.scenes.main.wMainMenu.runScene();
+								}
+							} catch (JSONException | IOException e1) {
+								e1.printStackTrace();
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							
+							try {
+								System.out.println(HTTPRequest.parsed());
+							} catch (JSONException | IOException e1) {
+								e1.printStackTrace();
+							}
 						}
-					} catch (JSONException | IOException e1) {
-						e1.printStackTrace();
-					}
-					
-					try {
-						System.out.println(HTTPRequest.parsed());
-					} catch (JSONException | IOException e1) {
-						e1.printStackTrace();
+					} catch (NumberFormatException | JSONException | IOException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
 					}
 			    }
 			}

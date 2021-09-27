@@ -39,14 +39,12 @@ public class downloadUpdate {
             return Files.copy(in, Paths.get(targetFileName));
         }
     }  
-    
-    public static void runNewUpdate() throws IOException, JSONException {
-    	int i=Integer.parseInt(org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON("version"));  
-		@SuppressWarnings("removal")
-		Double version = new Double(i);
-    	System.out.println(version);
     	
-    	if (version >= 1.0) {
+    public static void runNewUpdate() throws IOException, JSONException {
+	
+    	System.out.println(checkVersion());
+    	
+    	if (checkVersion() >= 1.0) {
     		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 
     		File file = new File(path + "/gameConfig.json");
@@ -61,5 +59,13 @@ public class downloadUpdate {
     	}
     	
     	System.exit(-1);
+    }
+    
+    public static double checkVersion() throws NumberFormatException, JSONException, IOException {
+    	int i=Integer.parseInt(org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON("version"));  
+    	@SuppressWarnings("removal")
+    	Double version = new Double(i);
+    	
+    	return version;
     }
 }
