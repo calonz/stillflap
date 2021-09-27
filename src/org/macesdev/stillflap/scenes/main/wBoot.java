@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
+import javax.print.DocFlavor.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -88,13 +90,13 @@ public class wBoot extends JFrame {
 
 					String lang;
 					try {
-						lang = setLanguageVeriable.parseJSON();
+						lang = setLanguageVeriable.parseJSON("language");
 						
 						if (lang.equals("tr_TR")) {
-							subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdates_level1);
+							subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdatest_found);
 							build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
 						} else {
-							subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdates_level1);
+							subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdatest_found);
 							build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
 						}
 					} catch (JSONException | IOException e1) {
@@ -115,6 +117,10 @@ public class wBoot extends JFrame {
 
 			}
 		});
+		
+		ImageIcon img = new ImageIcon("/org/macesdev/stillflap/assets/img/loading.png");
+		setIconImage(img.getImage());
+		
 		setTitle("StillFlap - Loading Assets");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 65, 600, 400);
@@ -161,7 +167,7 @@ public class wBoot extends JFrame {
 		
 		String lang;
 		try {
-			lang = setLanguageVeriable.parseJSON();
+			lang = setLanguageVeriable.parseJSON("language");
 			
 			if (lang.equals("tr_TR")) {
 				pressenter.setText(org.macesdev.stillflap.assets.lang.tr_TR.pressenter);

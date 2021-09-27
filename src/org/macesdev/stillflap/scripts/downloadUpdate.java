@@ -8,6 +8,7 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.json.JSONException;
 import org.macesdev.stillflap.run;
 
 public class downloadUpdate {
@@ -39,7 +40,26 @@ public class downloadUpdate {
         }
     }  
     
-    public static void runNewUpdate() throws IOException {
-    	// run new jar
+    public static void runNewUpdate() throws IOException, JSONException {
+    	int i=Integer.parseInt(org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON("version"));  
+		@SuppressWarnings("removal")
+		Double version = new Double(i);
+    	System.out.println(version);
+    	
+    	if (version >= 1.0) {
+    		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+
+    		File file = new File(path + "/gameConfig.json");
+    		if (file.exists()) {
+    			file.delete();
+    			file.createNewFile();
+    			
+        		setLanguageVeriable.createJSON(1.1);
+    		}
+    	} else {
+    		
+    	}
+    	
+    	System.exit(-1);
     }
 }

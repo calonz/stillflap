@@ -6,9 +6,10 @@ public class tr_TR {
 	public static String checkForUpdates_level1 = "Yeni güncellemeler kontrol ediliyor.";
 	public static String checkForUpdates_level2 = "Yeni güncellemeler kontrol ediliyor..";
 	public static String checkForUpdates_level3 = "Yeni güncellemeler kontrol ediliyor...";
-	public static String downloadingNow_part1 = "Yeni güncelleme bulundu";
-	public static String downloadingNow_part2 = "şu an indiriliyor..";
-	public static String downloadingUpdate = "İndiriliyor : ";
+	public static String checkForUpdatest_found = "Yeni gücelleme bulundu, indiriliyor..";
+	public static String downloadingNow_part1 = "Güncelleme tamamlandı yeni sürümü";
+	public static String downloadingNow_part2 = "oynamak için oyunu yeniden başlatın";
+	public static String restartUpdate = "Yeniden Başlat";
 	public static String pressenter = "ENTER Tuşuna Basarak Oyunu Başlat";
 	public static double version = 1.0;
 

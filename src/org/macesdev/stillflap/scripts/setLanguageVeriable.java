@@ -15,7 +15,7 @@ public class setLanguageVeriable {
 	static String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/gameConfig.json";
 
 	
-	public static String parseJSON() throws JSONException, IOException {
+	public static String parseJSON(String gettingValue) throws JSONException, IOException {
 		File myObj = new File(path);
 	    Scanner myReader = new Scanner(myObj);
 	    while (myReader.hasNextLine()) {
@@ -26,14 +26,15 @@ public class setLanguageVeriable {
 	    
 	    JSONObject obj = new JSONObject(jsonData);  
 
-		return obj.getString("language");
+		return obj.getString(gettingValue);
 	}
 	
-	public static void createJSON() throws IOException {
+	public static void createJSON(double ver) throws IOException {
         JSONObject jo = new JSONObject();
           
         try {
 	        jo.put("language", org.macesdev.stillflap.scripts.languageSettings.script(false, null));
+	        jo.put("version", ver);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
