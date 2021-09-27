@@ -40,6 +40,6 @@ public class downloadUpdate {
     }  
     
     public static void runNewUpdate() throws IOException {
-
+    	// run new jar
     }
 }

@@ -8,6 +8,7 @@ public class tr_TR {
 	public static String checkForUpdates_level3 = "Yeni güncellemeler kontrol ediliyor...";
 	public static String downloadingNow_part1 = "Yeni güncelleme bulundu";
 	public static String downloadingNow_part2 = "şu an indiriliyor..";
+	public static String downloadingUpdate = "İndiriliyor : ";
 	public static String pressenter = "ENTER Tuşuna Basarak Oyunu Başlat";
 	public static double version = 1.0;
 

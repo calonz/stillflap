@@ -20,6 +20,7 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JProgressBar;
 public class wDownloadUpdate extends JDialog {
@@ -35,10 +36,8 @@ public class wDownloadUpdate extends JDialog {
 	public static void run() {
 		try {
 			wDownloadUpdate dialog = new wDownloadUpdate();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 			dialog.setVisible(true);
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,25 +49,41 @@ public class wDownloadUpdate extends JDialog {
 	 * @throws MalformedURLException 
 	 */
 	public wDownloadUpdate() throws MalformedURLException, IOException {
-        String name = "os.name";
-        
-        if (System.getProperty(name).equals("Linux")) {
-        	try {
-        	      UIManager.setLookAndFeel(new FlatIntelliJLaf());
-        	    } catch (Exception e1) {
-        	      e1.printStackTrace();
-        	    }
-        }
+		try {
+  	      UIManager.setLookAndFeel(new FlatIntelliJLaf());
+  	    } catch (Exception e1) {
+  	      e1.printStackTrace();
+  	    }
 		
 		setResizable(false);
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosed(WindowEvent e) {
-				System.exit(-1);
 			}
 			@Override
 			public void windowOpened(WindowEvent e) {
-
+				try {
+					org.macesdev.stillflap.scenes.main.wBoot.enableCompoments(true);
+					
+					String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+					
+					while (org.macesdev.stillflap.scripts.downloadUpdate.run("aaa") == 207058) {
+						
+						File file = new File(path + "/game-1.1.jar");
+						if(file.exists()) {
+							String lang;
+							System.out.println("Update Succesfuly Downloaded!");
+						}
+						
+						org.macesdev.stillflap.scripts.downloadUpdate.runNewUpdate();
+						TimeUnit.SECONDS.sleep(1);
+						break;
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		getContentPane().setBackground(Color.BLACK);
@@ -85,7 +100,7 @@ public class wDownloadUpdate extends JDialog {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Ubuntu", Font.PLAIN, 15));
-		lblNewLabel.setBounds(0, 0, 414, 42);
+		lblNewLabel.setBounds(6, 12, 388, 42);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblRestartedForIt = new JLabel("$text2");
@@ -93,40 +108,12 @@ public class wDownloadUpdate extends JDialog {
 		lblRestartedForIt.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRestartedForIt.setForeground(Color.WHITE);
 		lblRestartedForIt.setFont(new Font("Ubuntu", Font.PLAIN, 15));
-		lblRestartedForIt.setBounds(0, 28, 414, 42);
+		lblRestartedForIt.setBounds(6, 37, 388, 42);
 		getContentPane().add(lblRestartedForIt);
-		
-		JProgressBar progressBar = new JProgressBar();
-		progressBar.setStringPainted(true);
-		
-		int val = org.macesdev.stillflap.scripts.downloadUpdate.run("aaa");
-		
-		progressBar.setValue(val);
-		
-		System.out.println("Download Succesful!!");
-		setVisible(false);
-		org.macesdev.stillflap.scenes.main.wBoot.enableCompoments(true);
-		
-		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		
-		while (org.macesdev.stillflap.scripts.downloadUpdate.run("aaa") == 207058) {
-			File file = new File(path + "/game-1.1.jar");
-			if(file.exists()) {
-				setVisible(false);
-				System.out.println("file finded!");
-			}
-			
-			org.macesdev.stillflap.scripts.downloadUpdate.runNewUpdate();
-			break;
-		} 
-
-		
-		progressBar.setBounds(10, 67, 382, 52);
-		getContentPane().add(progressBar);
 		setBackground(Color.BLACK);
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		setTitle("Update Alert");
-		setBounds(100, 100, 404, 167);
+		setBounds(100, 100, 404, 118);
 		
 		String lang;
 		try {
@@ -136,10 +123,12 @@ public class wDownloadUpdate extends JDialog {
 				lblRestartedForIt.setText(org.macesdev.stillflap.assets.lang.tr_TR.downloadingNow_part2);	
 				lblNewLabel.setText(org.macesdev.stillflap.assets.lang.tr_TR.downloadingNow_part1);	
 				setTitle(org.macesdev.stillflap.assets.lang.tr_TR.wDownloadUpdate_Title);
+				lblDownloading.setText(org.macesdev.stillflap.assets.lang.tr_TR.downloadingUpdate + "%100");
 			} else {
 				lblRestartedForIt.setText(org.macesdev.stillflap.assets.lang.en_US.downloadingNow_part2);	
 				lblNewLabel.setText(org.macesdev.stillflap.assets.lang.en_US.downloadingNow_part1);	
 				setTitle(org.macesdev.stillflap.assets.lang.en_US.wDownloadUpdate_Title);
+				lblDownloading.setText(org.macesdev.stillflap.assets.lang.tr_TR.downloadingUpdate + "%100");
 			}
 		} catch (JSONException | IOException e1) {
 			e1.printStackTrace();
