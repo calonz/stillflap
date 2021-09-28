@@ -3,9 +3,11 @@ package org.macesdev.stillflap.scripts;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -17,7 +19,7 @@ public class downloadUpdate {
 		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		long returnedBytesDownload = 0;
 		
-		File file = new File(path + "/game-1.1.jar");
+		File file = new File(path + "game-1.1.jar");
 		
 		if (file.exists()) {
 			returnedBytesDownload = 207058;
@@ -47,9 +49,12 @@ public class downloadUpdate {
 
     		File file = new File(path + "/gameConfig.json");
     		if (file.exists()) {
-    			  String jarPath = downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-    			  
-    			  System.out.println(jarPath);
+    			Runtime runTime = Runtime.getRuntime();
+                Process process = runTime.exec("java -jar " + path + "game-1.1.jar");
+                InputStream inputStream = process.getInputStream();
+                InputStreamReader isr = new InputStreamReader(inputStream);
+                InputStream errorStream = process.getErrorStream();
+                InputStreamReader esr = new InputStreamReader(errorStream);
     		} else {
     			// macesdev :)
     		}
@@ -64,7 +69,7 @@ public class downloadUpdate {
 			file.delete();
 			file.createNewFile();
 			
-			System.out.println("file path: " + downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+			System.out.println(downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI());
 			
     		setLanguageVeriable.createJSON(org.macesdev.stillflap.assets.lang.general.nextVersionSTR);
 		} else {

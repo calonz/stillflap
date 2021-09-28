@@ -93,6 +93,7 @@ public class wDownloadUpdate extends JDialog {
 			public void windowClosing(WindowEvent e) {
 				try {
 					org.macesdev.stillflap.scripts.downloadUpdate.runNewUpdate();
+					setVisible(false);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				} catch (JSONException e1) {

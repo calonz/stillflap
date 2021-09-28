@@ -147,6 +147,7 @@ public class wBoot extends JFrame {
 							}
 							
 							org.macesdev.stillflap.scripts.downloadUpdate.writeNewVersionConfig();
+							setVisible(false);
 							org.macesdev.stillflap.scripts.downloadUpdate.runNewUpdate();
 						}
 					} catch (NumberFormatException | JSONException | IOException e2) {

@@ -18,7 +18,7 @@ public class run {
 			org.macesdev.stillflap.scenes.main.wBoot.runScene();
 		} else {
 			file.createNewFile();
-			setLanguageVeriable.createJSON("1.0");
+			setLanguageVeriable.createJSON("1.1");
 		    org.macesdev.stillflap.scenes.main.wDialog.run();
 		}		
 	}
