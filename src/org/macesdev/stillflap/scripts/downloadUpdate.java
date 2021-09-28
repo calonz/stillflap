@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -40,7 +41,7 @@ public class downloadUpdate {
         }
     }  
     	
-    public static void runNewUpdate() throws IOException, JSONException {
+    public static void runNewUpdate() throws IOException, JSONException, URISyntaxException {
 	
     	System.out.println(checkVersion());
     	
@@ -51,6 +52,8 @@ public class downloadUpdate {
     		if (file.exists()) {
     			file.delete();
     			file.createNewFile();
+    			
+    			System.out.println(downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI());
     			
         		setLanguageVeriable.createJSON(1.1);
     		}

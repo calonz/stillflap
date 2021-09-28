@@ -29,13 +29,12 @@ public class wMainMenu extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	static JLabel logo2 = new JLabel("foundation");
-	static JLabel logo1 = new JLabel("macesdev");
-	private final JLabel logo2_1 = new JLabel("A 2D BASED JAVA GAME");
+	private final JLabel logo2_1 = new JLabel("Created by macesdev");
 	private final JLabel build_number = new JLabel("$version");
-	private final JLabel lblC = new JLabel("C 2021");
-	private final JLabel lblPlay = new JLabel("PLAY");
-	private final JLabel lblPlay_1 = new JLabel("PLAY");
+	private final JLabel lblPlay = new JLabel("Play");
+	private final JLabel lblOptions = new JLabel("Options");
+	private final JLabel lblPlay_1_1 = new JLabel("Credits");
+	private final JLabel build_number_1 = new JLabel("$daily_tricks");
 
 
 	/**
@@ -81,7 +80,7 @@ public class wMainMenu extends JFrame {
 		
 		setTitle("StillFlap - Loading Assets");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 65, 650, 450);
+		setBounds(100, 65, 650, 441);
 		setBackground(Color.BLACK);
 		setLocationRelativeTo(null);
 		setVisible(false);
@@ -90,55 +89,49 @@ public class wMainMenu extends JFrame {
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-
-		logo1.setHorizontalAlignment(SwingConstants.CENTER);
-		logo1.setForeground(Color.WHITE);
-		logo1.setFont(new Font("Ubuntu", Font.BOLD, 24));
-		logo1.setBounds(-77, 330, 324, 42);
-		contentPane.add(logo1);
-		
-		logo2.setHorizontalAlignment(SwingConstants.CENTER);
-		logo2.setForeground(Color.WHITE);
-		logo2.setFont(new Font("Ubuntu", Font.BOLD, 16));
-		logo2.setBounds(-77, 358, 324, 42);
-		contentPane.add(logo2);
 		
 		JLabel lblMainMenu = new JLabel("StillFlap");
 		lblMainMenu.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMainMenu.setForeground(Color.WHITE);
 		lblMainMenu.setFont(new Font("Ubuntu", Font.BOLD, 24));
-		lblMainMenu.setBounds(12, 26, 576, 42);
+		lblMainMenu.setBounds(12, 26, 626, 42);
 		contentPane.add(lblMainMenu);
 		logo2_1.setHorizontalAlignment(SwingConstants.CENTER);
 		logo2_1.setForeground(Color.WHITE);
 		logo2_1.setFont(new Font("Ubuntu", Font.BOLD, 16));
-		logo2_1.setBounds(12, 54, 576, 42);
+		logo2_1.setBounds(12, 54, 626, 42);
 		
 		contentPane.add(logo2_1);
 		build_number.setHorizontalAlignment(SwingConstants.RIGHT);
 		build_number.setForeground(Color.WHITE);
 		build_number.setFont(new Font("Ubuntu", Font.PLAIN, 18));
-		build_number.setBounds(249, 313, 324, 32);
+		build_number.setBounds(380, 362, 243, 32);
 		
 		contentPane.add(build_number);
-		lblC.setHorizontalAlignment(SwingConstants.CENTER);
-		lblC.setForeground(Color.WHITE);
-		lblC.setFont(new Font("Ubuntu", Font.PLAIN, 13));
-		lblC.setBounds(-77, 313, 324, 32);
-		
-		contentPane.add(lblC);
 		lblPlay.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlay.setForeground(Color.WHITE);
-		lblPlay.setFont(new Font("Ubuntu", Font.BOLD, 24));
-		lblPlay.setBounds(12, 108, 576, 60);
+		lblPlay.setFont(new Font("Ubuntu", Font.PLAIN, 20));
+		lblPlay.setBounds(12, 108, 626, 52);
 		
 		contentPane.add(lblPlay);
-		lblPlay_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPlay_1.setForeground(Color.WHITE);
-		lblPlay_1.setFont(new Font("Ubuntu", Font.BOLD, 24));
-		lblPlay_1.setBounds(12, 170, 576, 60);
+		lblOptions.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOptions.setForeground(Color.WHITE);
+		lblOptions.setFont(new Font("Ubuntu", Font.PLAIN, 20));
+		lblOptions.setBounds(12, 172, 626, 52);
 		
-		contentPane.add(lblPlay_1);
+		contentPane.add(lblOptions);
+		lblPlay_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPlay_1_1.setForeground(Color.WHITE);
+		lblPlay_1_1.setFont(new Font("Ubuntu", Font.PLAIN, 20));
+		lblPlay_1_1.setBounds(12, 236, 626, 52);
+		
+		contentPane.add(lblPlay_1_1);
+		build_number_1.setHorizontalAlignment(SwingConstants.LEFT);
+		build_number_1.setForeground(Color.WHITE);
+		build_number_1.setFont(new Font("Ubuntu", Font.PLAIN, 18));
+		build_number_1.setBounds(25, 362, 243, 32);
+		
+		contentPane.add(build_number_1);
 		
 		String lang;
 		try {

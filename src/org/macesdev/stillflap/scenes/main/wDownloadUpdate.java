@@ -21,6 +21,7 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JProgressBar;
@@ -97,6 +98,9 @@ public class wDownloadUpdate extends JDialog {
 				} catch (JSONException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -136,6 +140,9 @@ public class wDownloadUpdate extends JDialog {
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (URISyntaxException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
