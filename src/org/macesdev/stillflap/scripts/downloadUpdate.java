@@ -42,10 +42,8 @@ public class downloadUpdate {
     }  
     	
     public static void runNewUpdate() throws IOException, JSONException, URISyntaxException {
-	
-    	System.out.println(checkVersion());
     	
-    	if (checkVersion() >= 1.0) {
+    	if (org.macesdev.stillflap.scripts.HTTPRequest.parsed() != org.macesdev.stillflap.assets.lang.general.thisVersionSTR) {
     		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 
     		File file = new File(path + "/gameConfig.json");
@@ -55,20 +53,12 @@ public class downloadUpdate {
     			
     			System.out.println(downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI());
     			
-        		setLanguageVeriable.createJSON(1.1);
+        		setLanguageVeriable.createJSON("1.1");
+    		} else {
+    			System.out.println("your version is latest");
     		}
-    	} else {
-    		
     	}
-    	
-    	System.exit(-1);
-    }
     
-    public static double checkVersion() throws NumberFormatException, JSONException, IOException {
-    	int i=Integer.parseInt(org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON("version"));  
-    	@SuppressWarnings("removal")
-    	Double version = new Double(i);
-    	
-    	return version;
+    	System.exit(-1);
     }
 }

@@ -84,7 +84,7 @@ public class wBoot extends JFrame {
 
 			    if(key == KeyEvent.VK_ENTER){
 			    	try {
-						if (downloadUpdate.checkVersion() == org.macesdev.stillflap.assets.lang.en_US.nextVersion) {
+						if (org.macesdev.stillflap.scripts.HTTPRequest.parsed() != org.macesdev.stillflap.assets.lang.general.thisVersionSTR) {
 							pressenter.setVisible(false);
 							pressenter.setEnabled(false);
 							
@@ -97,10 +97,10 @@ public class wBoot extends JFrame {
 								
 								if (lang.equals("tr_TR")) {
 									subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdatest_found);
-									build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
 								} else {
 									subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdatest_found);
-									build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
 								}
 							} catch (JSONException | IOException e1) {
 								e1.printStackTrace();
@@ -124,14 +124,14 @@ public class wBoot extends JFrame {
 								
 								if (lang.equals("tr_TR")) {
 									subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdates_notFound);
-									build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionDOU + "-dev");
 								
 									TimeUnit.SECONDS.sleep(1);
 									setVisible(false);
 									org.macesdev.stillflap.scenes.main.wMainMenu.runScene();
 								} else {
 									subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkFOrUpdates_notFound);
-									build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionDOU + "-dev");
 									
 									TimeUnit.SECONDS.sleep(1);
 									setVisible(false);

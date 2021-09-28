@@ -139,10 +139,10 @@ public class wMainMenu extends JFrame {
 			
 			if (lang.equals("tr_TR")) {
 				setTitle(org.macesdev.stillflap.assets.lang.tr_TR.wMainMenu_Title);
-				build_number.setText("v" + org.macesdev.stillflap.assets.lang.tr_TR.version + "-dev");
+				build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
 			} else {
 				setTitle(org.macesdev.stillflap.assets.lang.en_US.wMainMenu_Title);
-				build_number.setText("v" + org.macesdev.stillflap.assets.lang.en_US.version + "-dev");
+				build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
 
 			}
 		} catch (JSONException | IOException e1) {

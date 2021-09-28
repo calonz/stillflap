@@ -29,7 +29,7 @@ public class setLanguageVeriable {
 		return obj.getString(gettingValue);
 	}
 	
-	public static void createJSON(double ver) throws IOException {
+	public static void createJSON(String ver) throws IOException {
         JSONObject jo = new JSONObject();
           
         try {

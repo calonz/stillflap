@@ -13,6 +13,4 @@ public class en_US {
 	public static String downloadingNow_part2 = "the game to play the new version";
 	public static String restartUpdate = "Restart Game";
 	public static String pressenter = "Press ENTER to Start Game";
-	public static double nextVersion = 1.1;
-	public static double version = 1.0;
 }

@@ -13,7 +13,5 @@ public class tr_TR {
 	public static String downloadingNow_part2 = "oynamak için oyunu yeniden başlatın";
 	public static String restartUpdate = "Yeniden Başlat";
 	public static String pressenter = "ENTER Tuşuna Basarak Oyunu Başlat";
-	public static double nextVersion = 1.1;
-	public static double version = 1.0;
 
 }

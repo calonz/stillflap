@@ -46,18 +46,17 @@ public class HTTPRequest {
 		return responseContent.toString();
 	}
 		
-	public static double parsed() throws JSONException, IOException {
+	public static String parsed() throws JSONException, IOException {
 		String jsonContent = req();
 	    
 	    JSONObject obj = new JSONObject(jsonContent);  
 	    
-	    if (obj.getDouble("latest") > org.macesdev.stillflap.assets.lang.en_US.version) {
+	    if (obj.getString("latest") == org.macesdev.stillflap.assets.lang.general.nextVersion) {
 	    	org.macesdev.stillflap.scenes.main.wDownloadUpdate.run();
 	    	org.macesdev.stillflap.scenes.main.wBoot.enableCompoments(false);
 	    }
-	    if (obj.getDouble("latest") == org.macesdev.stillflap.assets.lang.en_US.version) {
-	    }
 	    
-	    return obj.getDouble("latest");
+	    return obj.getString("latest");
 	}
+	
 }
