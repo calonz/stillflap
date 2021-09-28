@@ -35,6 +35,7 @@ public class setLanguageVeriable {
         try {
 	        jo.put("language", org.macesdev.stillflap.scripts.languageSettings.script(false, null));
 	        jo.put("version", ver);
+	        jo.put("nextVersion", org.macesdev.stillflap.assets.lang.general.nextVersionSTR);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

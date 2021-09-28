@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.concurrent.TimeUnit;
 
 import javax.print.DocFlavor.URL;
@@ -84,34 +85,7 @@ public class wBoot extends JFrame {
 
 			    if(key == KeyEvent.VK_ENTER){
 			    	try {
-						if (org.macesdev.stillflap.scripts.HTTPRequest.parsed() != org.macesdev.stillflap.assets.lang.general.thisVersionSTR) {
-							pressenter.setVisible(false);
-							pressenter.setEnabled(false);
-							
-							subtext.setVisible(true);
-							build_number.setVisible(true);
-
-							String lang;
-							try {
-								lang = setLanguageVeriable.parseJSON("language");
-								
-								if (lang.equals("tr_TR")) {
-									subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdatest_found);
-									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
-								} else {
-									subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdatest_found);
-									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
-								}
-							} catch (JSONException | IOException e1) {
-								e1.printStackTrace();
-							}
-							
-							try {
-								System.out.println(HTTPRequest.parsed());
-							} catch (JSONException | IOException e1) {
-								e1.printStackTrace();
-							}
-						} else {
+						if (org.macesdev.stillflap.scripts.setLanguageVeriable.parseJSON("version").equals(org.macesdev.stillflap.scripts.HTTPRequest.parsed())) {
 							pressenter.setVisible(false);
 							pressenter.setEnabled(false);
 							
@@ -125,22 +99,44 @@ public class wBoot extends JFrame {
 								if (lang.equals("tr_TR")) {
 									subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdates_notFound);
 									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionDOU + "-dev");
-								
-									TimeUnit.SECONDS.sleep(1);
 									setVisible(false);
 									org.macesdev.stillflap.scenes.main.wMainMenu.runScene();
 								} else {
 									subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkFOrUpdates_notFound);
 									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionDOU + "-dev");
 									
-									TimeUnit.SECONDS.sleep(1);
 									setVisible(false);
 									org.macesdev.stillflap.scenes.main.wMainMenu.runScene();
 								}
 							} catch (JSONException | IOException e1) {
 								e1.printStackTrace();
-							} catch (InterruptedException e1) {
-								// TODO Auto-generated catch block
+							}
+							
+							try {
+								System.out.println(HTTPRequest.parsed());
+							} catch (JSONException | IOException e1) {
+								e1.printStackTrace();
+							}							
+						} else {
+							pressenter.setVisible(false);
+							pressenter.setEnabled(false);
+							
+							subtext.setVisible(true);
+							build_number.setVisible(true);
+
+							String lang;
+							try {
+								lang = setLanguageVeriable.parseJSON("language");
+								
+								if (lang.equals("tr_TR")) {
+									subtext.setText(org.macesdev.stillflap.assets.lang.tr_TR.checkForUpdatest_found);
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
+									org.macesdev.stillflap.scenes.main.wDownloadUpdate.run();
+								} else {
+									subtext.setText(org.macesdev.stillflap.assets.lang.en_US.checkForUpdatest_found);
+									build_number.setText("v" + org.macesdev.stillflap.assets.lang.general.thisVersionSTR + "-dev");
+								}
+							} catch (JSONException | IOException e1) {
 								e1.printStackTrace();
 							}
 							
@@ -149,8 +145,14 @@ public class wBoot extends JFrame {
 							} catch (JSONException | IOException e1) {
 								e1.printStackTrace();
 							}
+							
+							org.macesdev.stillflap.scripts.downloadUpdate.writeNewVersionConfig();
+							org.macesdev.stillflap.scripts.downloadUpdate.runNewUpdate();
 						}
 					} catch (NumberFormatException | JSONException | IOException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					} catch (URISyntaxException e2) {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
 					}

@@ -51,11 +51,6 @@ public class HTTPRequest {
 	    
 	    JSONObject obj = new JSONObject(jsonContent);  
 	    
-	    if (obj.getString("latest") == org.macesdev.stillflap.assets.lang.general.nextVersion) {
-	    	org.macesdev.stillflap.scenes.main.wDownloadUpdate.run();
-	    	org.macesdev.stillflap.scenes.main.wBoot.enableCompoments(false);
-	    }
-	    
 	    return obj.getString("latest");
 	}
 	

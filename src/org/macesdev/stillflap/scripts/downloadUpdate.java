@@ -42,23 +42,33 @@ public class downloadUpdate {
     }  
     	
     public static void runNewUpdate() throws IOException, JSONException, URISyntaxException {
-    	
-    	if (org.macesdev.stillflap.scripts.HTTPRequest.parsed() != org.macesdev.stillflap.assets.lang.general.thisVersionSTR) {
+    	if (org.macesdev.stillflap.scripts.HTTPRequest.parsed() != org.macesdev.stillflap.assets.lang.general.nextVersionSTR) {
     		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 
     		File file = new File(path + "/gameConfig.json");
     		if (file.exists()) {
-    			file.delete();
-    			file.createNewFile();
-    			
-    			System.out.println(downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-    			
-        		setLanguageVeriable.createJSON("1.1");
+    			  String jarPath = downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+    			  
+    			  System.out.println(jarPath);
     		} else {
-    			System.out.println("your version is latest");
+    			// macesdev :)
     		}
     	}
+    }
     
-    	System.exit(-1);
+    public static void writeNewVersionConfig() throws IOException, URISyntaxException, JSONException {
+		String path = run.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+
+		File file = new File(path + "/gameConfig.json");
+		if (file.exists()) {
+			file.delete();
+			file.createNewFile();
+			
+			System.out.println("file path: " + downloadUpdate.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+			
+    		setLanguageVeriable.createJSON(org.macesdev.stillflap.assets.lang.general.nextVersionSTR);
+		} else {
+			// macesdev :)
+		}
     }
 }
