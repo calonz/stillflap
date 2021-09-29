@@ -1,10 +1,11 @@
 <h2 align="center"><b>StillFlap Game (2DGraphics Based)</b></h2>
 <p align="center">
   <a href="https://github.com/macesdev/stillflap/">REPO OSS </a> -
-  <a href="https://macesdev.github.io/macesdev/projects/stillflap/license">LICENSE</a> </br> </br>
-  <b> Created by MacesDEV Foundation </b> </br>
-  <b> All Rights Resevred </b>
+  <a href="https://macesdev.github.io/macesdev/projects/stillflap/license">LICENSE</a>
+  <p align="center"> Created by <b>MacesDEV Foundation</b> </p>
+  <p align="center"> All Rights Resevred </p>
 <h4 align="center"></h4>
+
 
 <h2> Project Details </h2>
 
